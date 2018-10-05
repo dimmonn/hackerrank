@@ -1,16 +1,16 @@
 package algos.hackerrank;
 
-public class CountingValues {
+public class CountingValleys {
     static int countingValleys(int n, String s) {
         int level = 0;
         int valleys = 0;
         boolean isUpDirection = false;
         char[] in = s.toCharArray();
-        for (int i = 0; i < in.length; i++) {
-            if (in[i] == 'U') {
+        for (char anIn : in) {
+            if (anIn == 'U') {
                 level++;
                 isUpDirection = true;
-            } else if (in[i] == 'D') {
+            } else if (anIn == 'D') {
                 level--;
                 isUpDirection = false;
             }
