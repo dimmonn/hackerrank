@@ -8,25 +8,14 @@ public class RepeatedString {
                 as++;
             }
         }
-        long fold = n / s.length();
+        long fold = (n / s.length());
         int complete = (int) (n % s.length());
         int half = 0;
-        if (s.length() < n) {
-            for (int i = 0; i < complete; i++) {
-                if (s.charAt(i) == 'a') {
-                    half++;
-                }
+        for (int i = 0; i < complete; i++) {
+            if (s.charAt(i) == 'a') {
+                half++;
             }
-
-            return half + as * fold;
-        } else {
-            long l = 0;
-            for (int i = 0; i < n; i++) {
-                if (s.charAt(i) == 'a') {
-                    l++;
-                }
-            }
-            return l;
         }
+        return half + as * fold;
     }
 }
