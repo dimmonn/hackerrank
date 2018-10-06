@@ -1,4 +1,4 @@
-package algos.hackerrank;
+package algos.hackerrank.warmup;
 
 public class RepeatedString {
     static long repeatedString(String s, long n) {

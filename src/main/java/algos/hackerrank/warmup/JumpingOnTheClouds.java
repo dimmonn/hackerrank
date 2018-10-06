@@ -1,4 +1,4 @@
-package algos.hackerrank;
+package algos.hackerrank.warmup;
 
 public class JumpingOnTheClouds {
     static int jumpingOnClouds(int[] c) {

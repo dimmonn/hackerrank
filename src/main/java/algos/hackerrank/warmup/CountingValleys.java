@@ -1,4 +1,4 @@
-package algos.hackerrank;
+package algos.hackerrank.warmup;
 
 public class CountingValleys {
     static int countingValleys(int n, String s) {

@@ -1,4 +1,4 @@
-package algos.hackerrank;
+package algos.hackerrank.warmup;
 
 import java.util.*;
 
