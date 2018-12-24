@@ -3,6 +3,7 @@ package algos.hackerrank.easy;
 import java.util.Arrays;
 
 public class LeftRotation {
+
     static int[] rotLeft(int[] a, int d) {
 
         int[] result = new int[a.length];
@@ -19,4 +20,5 @@ public class LeftRotation {
         }
         return result;
     }
+
 }

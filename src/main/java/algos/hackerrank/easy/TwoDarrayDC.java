@@ -1,11 +1,10 @@
 package algos.hackerrank.easy;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class TwoDarrayDC {
     static int hourglassSum(int[][] arr) {
+
 
         List<Integer> res = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
@@ -21,6 +20,5 @@ public class TwoDarrayDC {
         }
         return Collections.max(res);
     }
-
 
 }
