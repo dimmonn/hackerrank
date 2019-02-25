@@ -7,7 +7,6 @@ import java.nio.file.Paths;
 public class SpecialPalindromeAgain {
     static long substrCount(int n, String s) {
         long result = 0;
-
         for (int i = 0; i < n; i++) {
             StringBuilder substringToCheckForPalindrome = new StringBuilder();
             substringToCheckForPalindrome.append(s.charAt(i));
@@ -20,18 +19,13 @@ public class SpecialPalindromeAgain {
                         break inner;
                     } else if (oneDiffCondition(substringToCheckForPalindrome, counter, k, 0)) {
                         counter++;
-                        continue;
                     }
                 }
-
                 if (isPalindrome(substringToCheckForPalindrome.toString())) {
                     result++;
                 }
-
-
             }
         }
-
         return result + s.length();
     }
 
