@@ -20,9 +20,4 @@ public class MinimumAbsoluteDifferenceInAnArray {
         return result;
 
     }
-
-    public static void main(String[] args) {
-        int[] a = new int[]{3, -7, 0};
-        System.out.println(minimumAbsoluteDifference(a));
-    }
 }
