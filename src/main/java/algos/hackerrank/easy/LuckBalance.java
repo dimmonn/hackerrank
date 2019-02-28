@@ -10,11 +10,11 @@ public class LuckBalance {
 
         List<Integer> maxes = new ArrayList<>();
         int result = 0;
-        for (int i = 0; i < contests.length; i++) {
-            if (contests[i][1] == 1) {
-                maxes.add(contests[i][0]);
+        for (int[] contest : contests) {
+            if (contest[1] == 1) {
+                maxes.add(contest[0]);
             } else {
-                result += contests[i][0];
+                result += contest[0];
             }
         }
         Collections.sort(maxes);
