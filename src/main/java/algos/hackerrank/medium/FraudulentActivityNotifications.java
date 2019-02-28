@@ -17,9 +17,9 @@ public class FraudulentActivityNotifications {
             int result = ((Comparator<Integer>) Comparator.naturalOrder()).compare(array.get(mid), e);
 
 
-            if (result > 0) { //If e is lower
+            if (result > 0) {
                 right = mid;
-            } else { //If e is higher
+            } else {
                 left = mid + 1;
             }
         }
