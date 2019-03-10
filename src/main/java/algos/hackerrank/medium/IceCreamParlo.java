@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class IceCreamParlo {
     static void whatFlavors(int[] cost, int money) {
-        Map<Integer, Integer> integers = new HashMap();
+        Map<Integer, Integer> integers = new HashMap<>();
         for (int i = 0; i < cost.length; i++) {
             int i1 = cost[i];
             integers.put(i1, i);

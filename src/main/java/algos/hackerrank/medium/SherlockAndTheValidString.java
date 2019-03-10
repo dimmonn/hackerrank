@@ -1,8 +1,5 @@
 package algos.hackerrank.medium;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.*;
 
 public class SherlockAndTheValidString {
@@ -60,18 +57,5 @@ public class SherlockAndTheValidString {
         }
 
 
-    }
-
-    public static void main(String[] args) throws IOException {
-
-        File file = new File("/Users/dpolishc/Downloads/test.log");
-        FileReader fileReader = new FileReader(file);
-        StringBuilder stringBuffer = new StringBuilder();
-        int numCharsRead;
-        char[] charArray = new char[1024];
-        while ((numCharsRead = fileReader.read(charArray)) > 0) {
-            stringBuffer.append(charArray, 0, numCharsRead);
-        }
-        System.out.println(isValid(stringBuffer.toString()));
     }
 }

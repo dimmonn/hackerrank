@@ -1,9 +1,5 @@
 package algos.hackerrank.medium;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 public class SpecialPalindromeAgain {
     static long substrCount(int n, String s) {
         long result = 0;
@@ -51,25 +47,8 @@ public class SpecialPalindromeAgain {
             ) {
                 return false;
             }
-
-
         }
-
         return true;
-    }
-
-    public static void main(String[] args) throws IOException {
-
-
-        String content = new String(Files.readAllBytes(Paths.get("/Users/dpolishc/Downloads/test.log")));
-
-
-        System.out.println(substrCount(560219, content));
-        //   String a = "aaaa";
-        //   System.out.println(substrCount(4, a));
-        //System.out.println(isPalindrome("bbab"));
-        // String a = "bbabb";
-        //System.out.println(substrCount(6, "bbabbk"));
     }
 
 }
