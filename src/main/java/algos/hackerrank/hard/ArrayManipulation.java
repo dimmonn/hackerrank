@@ -1,7 +1,5 @@
 package algos.hackerrank.hard;
 
-import java.util.Arrays;
-
 public class ArrayManipulation {
     static long arrayManipulation(int n, int[][] queries) {
         long[] zeros = new long[n];
