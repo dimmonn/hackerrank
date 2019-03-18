@@ -24,7 +24,7 @@ public class MinimumTimeRequired {
 
     public static void main(String[] args) throws IOException {
         long[] ints = Files.lines(Paths.get("src/main/resources/test.txt"))
-                .map(e -> e.split(" ")).flatMap(x -> Arrays.stream(x)).mapToLong(Integer::parseInt).toArray();
+                .map(e -> e.split(" ")).flatMap(Arrays::stream).mapToLong(Integer::parseInt).toArray();
         System.out.println(minTime(ints, 844676607));
     }
 }
