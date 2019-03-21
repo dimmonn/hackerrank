@@ -1,6 +1,5 @@
 package algos.hackerrank.hard;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
@@ -12,8 +11,8 @@ public class MaximumSubarraySum {
         List<Long> prefix = new ArrayList<>();
         TreeSet<Long> searcher = new TreeSet<>();
         long sum = 0;
-        for (int i = 0; i < a.length; i++) {
-            sum = (sum + a[i] % m) % m;
+        for (long l : a) {
+            sum = (sum + l % m) % m;
             prefix.add(sum);
         }
         Long result = prefix.get(0);
