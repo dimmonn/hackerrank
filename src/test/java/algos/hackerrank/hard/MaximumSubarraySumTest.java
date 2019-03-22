@@ -1,5 +1,6 @@
 package algos.hackerrank.hard;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,18 +14,18 @@ import java.util.stream.Collectors;
 import static algos.hackerrank.hard.MaximumSubarraySum.maximumSum;
 
 public class MaximumSubarraySumTest {
-    List<long[]> testData = new ArrayList<>();
+    private List<long[]> testData = new ArrayList<>();
+    private long[] answers;
 
     @Before
     public void setUp() throws Exception {
 
         List<String[]> _strings = Files.lines(Paths.get("src/main/resources/maxSum.txt"))
                 .map(e -> e.split(" ")).collect(Collectors.toList());
+        answers = Files.lines(Paths.get("src/main/resources/1000Ktest.txt"))
+                .mapToLong(Long::parseLong).toArray();
         for (String[] string : _strings) {
             List<String> _tmp = new ArrayList<>(Arrays.asList(string));
-            _tmp.remove(0);
-
-
             long[] longs = _tmp.stream().mapToLong(Long::parseLong).toArray();
             testData.add(longs);
         }
@@ -34,8 +35,9 @@ public class MaximumSubarraySumTest {
     public void maximumSumTest() {
 
         for (int i = 0; i < testData.size(); i++) {
-            long mod = testData.get(0)[0];
-            System.out.println(maximumSum(testData.get(i), mod));
+            long mod = testData.get(i)[0];
+            long[] longs = Arrays.copyOfRange(testData.get(i), 1, testData.get(i).length );
+            Assert.assertEquals("iteration failed "+i,answers[i], maximumSum(longs, mod));
         }
     }
 }

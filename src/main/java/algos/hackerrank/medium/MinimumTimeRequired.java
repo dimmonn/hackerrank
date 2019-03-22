@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class MinimumTimeRequired {
 
 
-    static long minTime(long[] machines, long goal) {
+    public static long minTime(long[] machines, long goal) {
         Arrays.sort(machines);
         long max = machines[0] * goal;
         long min = machines[0] * goal / machines.length;
