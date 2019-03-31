@@ -2,7 +2,6 @@ package algos.hackerrank.hard;
 
 public class MakingCandies {
 
-
     static long minimumPasses(long m, long w, long p, long n) {
 
         long simpleStepsTotal = tooManyMwOrPriceTooHigh(m, w, p, n);
