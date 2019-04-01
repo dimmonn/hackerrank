@@ -26,15 +26,15 @@ public class MakingCandies {
                 for (int j = 0; j < money; j++) {
                     if (minMW < maxMW) {
                         minMW++;
-                        long tmpC = candies - ((j + 1) * p);
-                        totalSteps = getSimpleSteps(n, maxMW, minMW, totalSteps, candies, i, n - tmpC);
+                        totalSteps = getTotalSteps(p, n, maxMW, minMW, totalSteps, candies, i, j);
+                        if (isMwRфnOverflow(n, maxMW, minMW, totalSteps, i))
+                            return i + 2 >= totalSteps ? totalSteps : i + 2;
                     } else {
                         maxMW++;
-                        if (n / minMW <= maxMW || n / maxMW <= minMW) {
+                        totalSteps = getTotalSteps(p, n, maxMW, minMW, totalSteps, candies, i, j);
+
+                        if (isMwRфnOverflow(n, maxMW, minMW, totalSteps, i))
                             return i + 2 >= totalSteps ? totalSteps : i + 2;
-                        }
-                        long tmpC = candies - ((j + 1) * p);
-                        totalSteps = getSimpleSteps(n, maxMW, minMW, totalSteps, candies, i, n - tmpC);
                     }
 
                 }
@@ -42,6 +42,19 @@ public class MakingCandies {
             candies -= money * p;
         }
         return 0;
+    }
+
+    private static long getTotalSteps(long p, long n, long maxMW, long minMW, long totalSteps, long candies, long i, int j) {
+        long tmpC = candies - ((j + 1) * p);
+        totalSteps = getSimpleSteps(n, maxMW, minMW, totalSteps, candies, i, n - tmpC);
+        return totalSteps;
+    }
+
+    private static boolean isMwRфnOverflow(long n, long maxMW, long minMW, long totalSteps, long i) {
+        if (n / minMW <= maxMW || n / maxMW <= minMW) {
+            return true;
+        }
+        return false;
     }
 
     private static long tooManyMwOrPriceTooHigh(long m, long w, long p, long n) {
