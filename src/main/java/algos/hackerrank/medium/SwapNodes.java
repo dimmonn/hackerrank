@@ -53,17 +53,17 @@ public class SwapNodes {
         Tree leftNode, rightNode;
         int[] nodes ;
         int totalNodes = 1;
-        for(int i =0; i < indexes.length; i++) {
+        for (int[] index : indexes) {
             curr = nextNodes.remove();
-            nodes = indexes[i];
-            if(nodes[0] != -1) {
+            nodes = index;
+            if (nodes[0] != -1) {
                 // Add it to the left node of curr...
                 leftNode = new Tree(nodes[0]);
                 totalNodes++;
                 nextNodes.add(leftNode);
                 curr.setLeft(leftNode);
             }
-            if(nodes[1] != -1) {
+            if (nodes[1] != -1) {
                 rightNode = new Tree(nodes[1]);
                 totalNodes++;
                 nextNodes.add(rightNode);
@@ -97,7 +97,7 @@ public class SwapNodes {
                 levelNodes.put(level, nodes);
                 count = updateCount;
                 updateCount = 0;
-                nodes = new ArrayList<Tree>();
+                nodes = new ArrayList<>();
                 level++;
             }
         }
@@ -115,7 +115,7 @@ public class SwapNodes {
     }
 
     static void modifyNodesByDepth(ArrayList<Tree> currLevelNodes) {
-        Tree temp = null;
+        Tree temp;
         for(Tree curr : currLevelNodes) {
             if(curr.getLeft()!= null && curr.getRight()!= null) {
                 temp = curr.getLeft();
