@@ -3,10 +3,7 @@ package algos.hackerrank.medium;
 import java.util.Arrays;
 
 public class MaxArraySum {
-
-
     static int maxSubsetSum(int[] arr) {
-
         int maximum = Arrays.stream(arr).max().getAsInt();
         if (maximum < 0) {
             return maximum;
@@ -18,7 +15,5 @@ public class MaxArraySum {
             two = tmp;
         }
         return Math.max(current, two);
-
     }
-
 }
