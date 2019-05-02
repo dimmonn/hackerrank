@@ -1,11 +1,10 @@
 package algos.hackerrank.medium;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+import java.util.Stack;
 
 public class LargestRectangle {
-    static List<Integer> rectangles = new ArrayList<>();
+    static Stack<Integer> rectangles = new Stack<>();
 
     static long largestRectangle1(int[] h) {
         for (int i = 0; i < h.length; i++) {
@@ -29,9 +28,12 @@ public class LargestRectangle {
                     break;
                 }
             }
-            rectangles.add(tmpIndex * length);
+
+            int max = Math.max(rectangles.isEmpty() ? 0 : rectangles.pop(), tmpIndex * length);
+
+            rectangles.push(max);
         }
-        return Collections.max(rectangles);
+        return rectangles.pop();
     }
 
     static long largestRectangle(int[] h) {
