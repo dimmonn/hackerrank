@@ -35,21 +35,7 @@ public class PoisonousPlants {
 
     static int poisonousPlants4(int[] p) {
         List<LinkedList<Integer>> stack = new LinkedList<>();
-        Queue<Integer> tmp = new LinkedList<>();
-        for (int i = 0; i < p.length; i++) {
-            if (i < p.length - 1 && p[i] < p[i + 1]) {
-                tmp.offer(p[i]);
-                stack.add(new LinkedList<>(tmp));
-                tmp.clear();
-                continue;
-            } else if (i == p.length - 1) {
-                tmp.offer(p[i]);
-                stack.add(new LinkedList<>(tmp));
-                tmp.clear();
-                continue;
-            }
-            tmp.add(p[i]);
-        }
+        sortUpSubStacks(p, stack);
         int result = 0;
         int _tmp = 0;
         List<Integer> cache1 = new ArrayList<>();
@@ -93,6 +79,24 @@ public class PoisonousPlants {
             }
         }
         return result;
+    }
+
+    private static void sortUpSubStacks(int[] p, List<LinkedList<Integer>> stack) {
+        Queue<Integer> tmp = new LinkedList<>();
+        for (int i = 0; i < p.length; i++) {
+            if (i < p.length - 1 && p[i] < p[i + 1]) {
+                tmp.offer(p[i]);
+                stack.add(new LinkedList<>(tmp));
+                tmp.clear();
+                continue;
+            } else if (i == p.length - 1) {
+                tmp.offer(p[i]);
+                stack.add(new LinkedList<>(tmp));
+                tmp.clear();
+                continue;
+            }
+            tmp.add(p[i]);
+        }
     }
 
     private static void followUpOnRemovedItems(List<LinkedList<Integer>> stack, List<Integer> collect) {
