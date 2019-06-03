@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.TreeSet;
 
 public class MaximumSubarraySum {
-
-
     static long maximumSum(long[] a, long m) {
         List<Long> prefix = new ArrayList<>();
         TreeSet<Long> searcher = new TreeSet<>();
