@@ -15,20 +15,20 @@ public class FriendCircleQueries {
 
   static Map<Integer, FriendsCircle> roots = new HashMap<>();
   static Map<Integer, Integer> cache = new HashMap<>();
-  static int[] result;
+  static int[] maxFriendsPerQuery;
   static int max = 0;
 
   static int[] maxCircle(int[][] queries) {
 
     Map<Integer, Integer> result = new HashMap<>();
-    FriendCircleQueries.result = new int[queries.length];
+    maxFriendsPerQuery = new int[queries.length];
     for (int i = 0; i < queries.length; i++) {
       int a = queries[i][0];
       int b = queries[i][1];
       union(result, a, b);
-      FriendCircleQueries.result[i] = max;
+      maxFriendsPerQuery[i] = max;
     }
-    return FriendCircleQueries.result;
+    return maxFriendsPerQuery;
   }
 
   private static void union(Map<Integer, Integer> result, int a, int b) {
@@ -47,40 +47,28 @@ public class FriendCircleQueries {
     friendAcceptor.id = rootTo;
     result.put(rootFrom, rootTo);
 
-    if (roots.get(friendRequester.id) != null && roots.get(friendAcceptor.id) != null) {
-      friendRequester = roots.get(friendRequester.id);
-      friendAcceptor = roots.get(friendAcceptor.id);
-
-      friendAcceptor.prev.add(friendRequester);
-      friendAcceptor.max += friendRequester.max;
-      roots.remove(friendAcceptor.id);
-      roots.remove(friendRequester.id);
-      roots.put(friendAcceptor.id, friendAcceptor);
-      if (max < friendAcceptor.max) {
-        max = friendAcceptor.max;
-      }
-    } else if (roots.get(friendRequester.id) != null || roots.get(friendAcceptor.id) != null) {
-
+    if (roots.get(friendRequester.id) != null || roots.get(friendAcceptor.id) != null) {
       friendRequester = roots.getOrDefault(friendRequester.id, friendRequester);
       friendAcceptor = roots.getOrDefault(friendAcceptor.id, friendAcceptor);
       roots.remove(friendAcceptor.id);
       friendAcceptor.max += friendRequester.max;
-
       friendAcceptor.prev.add(friendRequester);
       roots.remove(friendRequester.id);
       roots.put(friendAcceptor.id, friendAcceptor);
-      if (max < friendAcceptor.max) {
-        max = friendAcceptor.max;
-      }
+      updateMaxFriends(friendAcceptor);
 
     } else {
       friendRequester.max = 1;
       friendAcceptor.max = 2;
       friendAcceptor.prev.add(friendRequester);
       roots.put(friendAcceptor.id, friendAcceptor);
-      if (max < friendAcceptor.max) {
-        max = friendAcceptor.max;
-      }
+      updateMaxFriends(friendAcceptor);
+    }
+  }
+
+  private static void updateMaxFriends(FriendsCircle friendAcceptor) {
+    if (max < friendAcceptor.max) {
+      max = friendAcceptor.max;
     }
   }
 
