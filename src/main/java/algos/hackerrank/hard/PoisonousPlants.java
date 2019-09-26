@@ -109,8 +109,8 @@ public class PoisonousPlants {
     }
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        int[] ints = Files.readAllLines(Path.of("/Users/dpolishc/Downloads/test.log")).
+       /* int[] ints = Files.readAllLines(Path.of("/Users/dpolishc/Downloads/test.log")).
                 stream().map(e -> e.split(" ")).flatMap(Arrays::stream).mapToInt(Integer::parseInt).toArray();
-        System.out.println(poisonousPlants4(ints));
+        System.out.println(poisonousPlants4(ints));*/
     }
 }

@@ -1,0 +1,20 @@
+<configuration scan="true" scanPeriod="1 second">
+
+  <appender name="consoleAppender"
+    class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <charset>UTF-8</charset>
+      <Pattern>%d %-4relative [%thread] %-5level %logger{35} - %msg
+      </Pattern>
+    </encoder>
+  </appender>
+
+  <logger name="dp.spring" level="warn">
+    <appender-ref ref="consoleAppender"/>
+  </logger>
+
+  <root level="info">
+    <appender-ref ref="consoleAppender"/>
+  </root>
+</configuration>
+
