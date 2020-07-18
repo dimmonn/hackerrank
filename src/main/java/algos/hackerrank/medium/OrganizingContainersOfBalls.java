@@ -12,8 +12,8 @@ public class OrganizingContainersOfBalls {
     }
     for (int i = 0; i < container.length; i++) {
       int sum = 0;
-      for (int j = 0; j < container.length; j++) {
-        sum += container[j][i];
+      for (int[] ints : container) {
+        sum += ints[i];
       }
       type.put(i, sum);
     }
