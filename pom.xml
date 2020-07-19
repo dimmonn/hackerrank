@@ -11,6 +11,8 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <javaassist.version>3.21.0-GA</javaassist.version>
         <lombok>1.18.12</lombok>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
     </properties>
     <groupId>com.local.algorythms</groupId>
     <artifactId>hackerrank</artifactId>
