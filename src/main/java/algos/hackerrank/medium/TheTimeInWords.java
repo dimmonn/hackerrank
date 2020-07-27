@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class TheTimeInWords {
 
-  static Map<Integer, String> numbers =
+  static final Map<Integer, String> numbers =
       new HashMap<Integer, String>() {
         {
           put(0, "zero");
@@ -51,10 +51,11 @@ public class TheTimeInWords {
       result = "half past " + numbers.get(h);
     } else if (m == 45) {
       result = "quarter to " + numbers.get(h + 1);
+    } else if (m == 1) {
+      result = numbers.get(m) + " minute past " + numbers.get(h);
     } else if (60 - m > 30 && m > 0) {
       result = numbers.get(m) + " minutes past " + numbers.get(h);
     } else if (60 - m < 30) {
-
       result = numbers.get(60 - m) + " minutes to " + numbers.get(h + 1);
     }
     return result;
